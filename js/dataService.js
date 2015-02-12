@@ -16,16 +16,18 @@ app.service('mainService', function() {
 		return quotes;
 	}
 
-	this.addData = function() {
-		$scope.quotes.push($scope.newQuote);
+	this.addData = function(copy, authorName) {
+		var newQuote = {
+			text: copy,
+			author: authorName
+		}
+		console.log(newQuote);
+		quotes.push(newQuote);
+
 	}
 
-	this.removeData = function(inpQuote) {
-		for (var i = 0; i < quotes.length; i++) {
-			if (inpQuote === quotes[i].text) {
-				$scope.quotes.splice(i, 1);
-			}
-		}
+	this.removeData = function(index) {
+		quotes.splice(index, 1);
 	}
 
 });

@@ -8,22 +8,30 @@
 
 		<!-- {{test}} -->
 
-		<div>
+		<div class="btnbox">
 			<div>
-				<button ng-click="addData()">Add Quote</button>
+				<button ng-click="toggle()">Add a Quote</button>
+				<div class="formBox">
+					<form ng-show="showForm">
+						<textarea type="text" placeholder="Enter new Quote" ng-model="text"></textarea>
+						<input type="text" placeholder="Author Name" ng-model="author">
+						<button ng-click="addQuote()">Add New Quote</button>
+					</form>
+				</div>
 			</div>
 			<div>
-				<button ng-click="removeData()">Remove Quote</button>
+				<button ng-click="showRemove()">Remove Quote</button>
 			</div>
 			<div>
-				<button>Filter Quotes</button>
+				<button ng-click="filterOn = !filterOn">Filter Quotes</button>
+      			<input class="filterInput" ng-show="filterOn" ng-model="search" type='text' placeholder="Enter Quote here">
 			</div>
 		</div>
 
 		<br>
 
-		<div ng-repeat="quote in quotes">
-			<h4>{{quote.author}}</h4>
+		<div class="quotebox" ng-repeat="quote in quotes | filter: search">
+			<h3>{{quote.author}}: <button ng-show="showRemoveBtn" ng-click="removeQuote($index)">Delete</button></h3>
 			<p>{{quote.text}}</p>
 		</div>
 

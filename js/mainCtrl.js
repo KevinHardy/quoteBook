@@ -10,4 +10,31 @@ app.controller('mainCtrl', function($scope, mainService) {
 
 	getData();
 
+	$scope.addQuote = function() {
+		mainService.addData($scope.text, $scope.author);
+
+		$scope.text = '';
+		$scope.author = '';
+	}
+
+	$scope.removeQuote = function($index) {
+		mainService.removeData($index);
+	}
+
+	$scope.toggle = function() {
+		if($scope.showForm) {
+			$scope.showForm = false;
+		} else {
+			$scope.showForm = true;
+		}
+	};
+
+	$scope.showRemove = function() {
+		if($scope.showRemoveBtn) {
+			$scope.showRemoveBtn = false;
+		} else {
+			$scope.showRemoveBtn = true;
+		}
+	};
+
 });

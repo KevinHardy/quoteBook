@@ -11,21 +11,22 @@
 		<div class="btnbox">
 			<div>
 				<button ng-click="toggle()">Add a Quote</button>
-				<div class="formBox">
-					<form ng-show="showForm">
-						<textarea type="text" placeholder="Enter new Quote" ng-model="text"></textarea>
-						<input type="text" placeholder="Author Name" ng-model="author">
-						<button ng-click="addQuote()">Add New Quote</button>
-					</form>
-				</div>
 			</div>
 			<div>
 				<button ng-click="showRemove()">Remove Quote</button>
 			</div>
 			<div>
 				<button ng-click="filterOn = !filterOn">Filter Quotes</button>
-      			<input class="filterInput" ng-show="filterOn" ng-model="search" type='text' placeholder="Enter Quote here">
 			</div>
+		</div>
+
+		<div class="formBox">
+			<form ng-show="showForm">
+				<textarea type="text" placeholder="Enter new Quote" ng-model="text"></textarea>
+				<input type="text" placeholder="Author Name" ng-model="author">
+				<button ng-click="addQuote()">Add New Quote</button>
+			</form>
+			<input class="filterInput" ng-show="filterOn" ng-model="search" type='text' placeholder="Enter Quote here">
 		</div>
 
 		<br>

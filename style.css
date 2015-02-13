@@ -41,5 +41,6 @@ p {
 }
 
 .formBox {
-	clear: left;
+	display: flex;
+	justify-content: center;
 }

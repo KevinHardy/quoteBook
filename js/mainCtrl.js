@@ -1,4 +1,4 @@
-var app = angular.module('quoteBook');
+var app = angular.module('quoteBook', ['ngCookies']);
 
 app.controller('mainCtrl', function($scope, mainService) {
 
@@ -36,5 +36,7 @@ app.controller('mainCtrl', function($scope, mainService) {
 			$scope.showRemoveBtn = true;
 		}
 	};
+
+	//using cookies to store data for reuse
 
 });
